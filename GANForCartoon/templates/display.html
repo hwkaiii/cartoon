@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Processing Results</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card img {
+            max-width: 300x; /* 设置图片的最大宽度 */
+            max-height: 350px; /* 设置图片的最大高度 */
+            width: auto;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .card-header {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 显示原始图像 -->
+        <div class="card">
+            <div class="card-header">
+                显示原始图像
+            </div>
+            <img src="{{ url_for('send_image', filename=original_img) }}" alt="Original Image">
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                截取出的人脸图像
+            </div>
+            <img src="{{ url_for('send_image', filename=face_img) }}" alt="Face">
+        </div>
+
+
+
+        <!-- 显示白色背景的人脸图像 -->
+        <div class="card">
+            <div class="card-header">
+                显示白色背景的人脸图像
+            </div>
+            <img src="{{ url_for('send_image', filename=face_white_bg_img) }}" alt="Face with White Background" style="max-width: 500px; max-height: 500px;">
+        </div>
+
+        <!-- 显示卡通化后的图像 -->
+        <div class="card">
+            <div class="card-header">
+                显示卡通化后的图像
+            </div>
+            <img src="{{ url_for('send_image', filename=cartoon_img) }}" alt="Cartoon Face" style="max-width: 500px; max-height: 500px;">
+        </div>
+    </div>
+
+    <!-- 引入 Bootstrap JS 和依赖的 jQuery 和 Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
